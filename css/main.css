@@ -1,0 +1,7 @@
+.flexContainer {
+    display: flex;
+}
+
+.flexContainer>* {
+    width: 50%;
+}
