@@ -11,16 +11,46 @@ let arrayGaleria = [
 console.log(arrayGaleria)
 
 function fotoAleatoria() {
-    let n = Math.random * 10
-    let n1 = Math.round(n);
 
-    console.log(n)
+    let n1 = Math.floor(Math.random() * 7);
     console.log(n1)
     console.log(arrayGaleria[n1])
 
-    //let imagen = document.querySelector(#imagenDinamica)
-    //imagen.src = arrayGaleria[n].src;
+    let contenedor = document.querySelector("#imagenDinamica")
+
+    let imagen = document.createElement("IMG")
+    imagen.src = arrayGaleria[n1].src;
+    imagen.alt = "Imagen elegida aleatorimente"
+
+    contenedor.append(imagen)
 
 }
 
 fotoAleatoria()
+
+function cargarImagenes() {
+    let contenedorPadre = document.querySelector("#padre")
+    let fragmento = document.createDocumentFragment();
+
+    arrayGaleria.forEach(elemento => {
+
+        let contenedor = document.createElement("ARTICLE")
+        contenedor.className = "flexItem"
+
+        let imageContainer = document.createElement("DIV")
+        imageContainer.className = "imgContainer"
+
+        let imagen = document.createElement("IMG")
+        imagen.src = elemento.src
+        imagen.alt = elemento.alt
+
+        let parrafo = document.createElement("P")
+        parrafo.innerText = `Imagen en la posicion ${elemento.id}`
+        imageContainer.append(imagen)
+
+        contenedor.append(imageContainer, parrafo)
+        fragmento.append(contenedor)
+    })
+    contenedorPadre.append(fragmento)
+}
+cargarImagenes()

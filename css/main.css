@@ -1,7 +1,20 @@
+* {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 .flexContainer {
     display: flex;
+    overflow: auto;
+    flex-direction: column;
+    padding: 2rem;
 }
 
 .flexContainer>* {
-    width: 50%;
+    width: 80%;
+}
+
+#imagenDinamica {
+    width: 95%;
 }
