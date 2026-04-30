@@ -1,5 +1,4 @@
 * {
-    width: 100%;
     padding: 0;
     margin: 0;
 }
@@ -7,14 +6,38 @@
 .flexContainer {
     display: flex;
     overflow: auto;
-    flex-direction: column;
-    padding: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .flexContainer>* {
-    width: 80%;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.imgContainer {
+    width: 100%;
 }
 
 #imagenDinamica {
-    width: 95%;
+    width: 50%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 400px) {
+    .flexContainer>* {
+        width: 50vw;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .flexContainer>* {
+        width: 25vw;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .flexContainer>* {
+        width: 20vw;
+    }
 }

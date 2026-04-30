@@ -8,13 +8,16 @@ let arrayGaleria = [
     { id: 7, src: "./assets/viajes/viajes-7.jpg", alt: "Texto alternativo de la imagen 7" }
 ];
 
-console.log(arrayGaleria)
+//console.log(arrayGaleria)
+
+const numAleatorio = (() => {
+    let n = Math.floor(Math.random() * arrayGaleria.length);
+    return n;
+})
 
 function fotoAleatoria() {
 
-    let n1 = Math.floor(Math.random() * 7);
-    console.log(n1)
-    console.log(arrayGaleria[n1])
+    let n1 = numAleatorio();
 
     let contenedor = document.querySelector("#imagenDinamica")
 
@@ -35,7 +38,7 @@ function cargarImagenes() {
     arrayGaleria.forEach(elemento => {
 
         let contenedor = document.createElement("ARTICLE")
-        contenedor.className = "flexItem"
+        //contenedor.className = "flexItem"
 
         let imageContainer = document.createElement("DIV")
         imageContainer.className = "imgContainer"
@@ -46,8 +49,8 @@ function cargarImagenes() {
 
         let parrafo = document.createElement("P")
         parrafo.innerText = `Imagen en la posicion ${elemento.id}`
-        imageContainer.append(imagen)
 
+        imageContainer.append(imagen)
         contenedor.append(imageContainer, parrafo)
         fragmento.append(contenedor)
     })
